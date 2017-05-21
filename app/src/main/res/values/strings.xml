@@ -4,4 +4,10 @@
     <string name="rainy">비</string>
     <string name="gloomy">흐림</string>
     <string name="snowy">눈</string>
+
+    <string name="DateTitle">날짜</string>
+    <string name="MainTitle">메인</string>
+    <string name="PersonalTitle">개인정보</string>
+    <string name="StyleTitle">스타일</string>
+    <string name="WeatherTitle">날씨</string>
 </resources>

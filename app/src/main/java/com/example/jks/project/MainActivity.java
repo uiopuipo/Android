@@ -20,13 +20,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button1 = (Button)findViewById(R.id.Mbutton1);
-        Button button2 = (Button)findViewById(R.id.Mbutton2);
-        Button button3 = (Button)findViewById(R.id.Mbutton3);
     }
 
     @Override
     public void onClick(View v) {
-
+        Intent intent;
+        switch(v.getId()){
+            case R.id.Mbutton1:
+                intent = new Intent(MainActivity.this, DateActivity.class);
+                startActivityForResult(intent, RESULT_OK);
+                break;
+            case R.id.Mbutton2:
+                intent = new Intent(MainActivity.this, PersonalActivity.class);
+                startActivityForResult(intent, RESULT_OK);
+                break;
+            case R.id.Mbutton3:
+                intent = new Intent(MainActivity.this, WeatherActivity.class);
+                startActivityForResult(intent, RESULT_OK);
+                break;
+            case R.id.Mbutton4:
+                intent = new Intent(MainActivity.this, StyleActivity.class);
+                startActivityForResult(intent, RESULT_OK);
+                break;
+        }
     }
 }

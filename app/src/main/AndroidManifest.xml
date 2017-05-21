@@ -16,9 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DateActivity" />
-        <activity android:name=".WeatherActivity" />
-        <activity android:name=".PersonalActivity"></activity>
+        <activity
+            android:name=".DateActivity"
+            android:label="@string/DateTitle" />
+        <activity
+            android:name=".WeatherActivity"
+            android:label="@string/WeatherTitle" />
+        <activity
+            android:name=".PersonalActivity"
+            android:label="@string/PersonalTitle" />
+        <activity android:name=".StyleActivity"></activity>
     </application>
 
 </manifest>
