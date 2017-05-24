@@ -21,25 +21,25 @@
             android:id="@+id/WradioButton1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sunny" />
+            android:text="@string/Wsunny" />
 
         <RadioButton
             android:id="@+id/WradioButton2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/gloomy" />
+            android:text="@string/Wgloomy" />
 
         <RadioButton
             android:id="@+id/WradioButton3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/rainy" />
+            android:text="@string/Wrainy" />
 
         <RadioButton
             android:id="@+id/WradioButton4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/snowy" />
+            android:text="@string/Wsnowy" />
 
 
     </LinearLayout>

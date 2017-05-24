@@ -25,7 +25,9 @@
         <activity
             android:name=".PersonalActivity"
             android:label="@string/PersonalTitle" />
-        <activity android:name=".StyleActivity"></activity>
+        <activity
+            android:name=".StyleActivity"
+            android:label="스타일 추천"/>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
+import android.widget.EditText;
 
 /*------프로젝트 공동 작업을 위한 설명 공간입니다.------*/ /*
 1. GitHub 주소 : https://github.com/uiopuipo/Android
@@ -15,11 +16,16 @@ ex) Button 객체를 생성한다면 -> Button button1
 */ /*------------------------------------------------------*/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
+    final static int DATE_CODE = 1;
+    EditText editText1, editText2, editText3, editText4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        editText1 = (EditText) findViewById(R.id.MeditText1);
+        editText2 = (EditText) findViewById(R.id.MeditText2);
+        editText3 = (EditText) findViewById(R.id.MeditText3);
+        editText4 = (EditText) findViewById(R.id.MeditText4);
     }
 
     @Override
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(v.getId()){
             case R.id.Mbutton1:
                 intent = new Intent(MainActivity.this, DateActivity.class);
-                startActivityForResult(intent, RESULT_OK);
+                startActivityForResult(intent, DATE_CODE);
                 break;
             case R.id.Mbutton2:
                 intent = new Intent(MainActivity.this, PersonalActivity.class);
@@ -42,6 +48,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent = new Intent(MainActivity.this, StyleActivity.class);
                 startActivityForResult(intent, RESULT_OK);
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if(requestCode == DATE_CODE) {
+            if(resultCode == RESULT_OK) {
+                editText1.setText(data.getStringExtra("DATE_DATA"));
+            }
         }
     }
 }
