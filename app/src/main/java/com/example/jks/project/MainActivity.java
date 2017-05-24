@@ -10,13 +10,16 @@ import android.widget.EditText;
 /*------프로젝트 공동 작업을 위한 설명 공간입니다.------*/ /*
 1. GitHub 주소 : https://github.com/uiopuipo/Android
 2. XML 이름짓기 규칙 - 추가한 위젯들의 ID는 해당 액티비티의 첫 글자를 앞에 붙이고 숫자를 추가합니다.
-ex) activity_main에서 button으로 기본 생성이 되었다면 메인의 M을 따서 -> "@+id/Mbutton1"
+    ex) activity_main에서 button으로 기본 생성이 되었다면 메인의 M을 따서 -> "@+id/Mbutton1"
 3. 객체 이름짓기 규칙 - 해당 객체의 종류를 소문자로 적고 숫자를 추가합니다.
-ex) Button 객체를 생성한다면 -> Button button1
+    ex) Button 객체를 생성한다면 -> Button button1
 */ /*------------------------------------------------------*/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     final static int DATE_CODE = 1;
+    final static int WEATHER_CODE = 2;
+    final static int PERSONAL_CODE = 3;
+    final static int STYLE_CODE = 4;
     EditText editText1, editText2, editText3, editText4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,16 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(intent, DATE_CODE);
                 break;
             case R.id.Mbutton2:
-                intent = new Intent(MainActivity.this, PersonalActivity.class);
-                startActivityForResult(intent, RESULT_OK);
+                intent = new Intent(MainActivity.this, WeatherActivity.class);
+                startActivityForResult(intent, WEATHER_CODE);
                 break;
             case R.id.Mbutton3:
-                intent = new Intent(MainActivity.this, WeatherActivity.class);
-                startActivityForResult(intent, RESULT_OK);
+                intent = new Intent(MainActivity.this, PersonalActivity.class);
+                startActivityForResult(intent, PERSONAL_CODE);
                 break;
             case R.id.Mbutton4:
                 intent = new Intent(MainActivity.this, StyleActivity.class);
-                startActivityForResult(intent, RESULT_OK);
+                startActivityForResult(intent, STYLE_CODE);
                 break;
         }
     }
@@ -56,6 +59,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(requestCode == DATE_CODE) {
             if(resultCode == RESULT_OK) {
                 editText1.setText(data.getStringExtra("DATE_DATA"));
+            }
+        }else if(requestCode == WEATHER_CODE) {
+            if(resultCode == RESULT_OK) {
+                editText1.setText(data.getStringExtra("WEATHER_DATA"));
+            }
+        }else if(requestCode == PERSONAL_CODE) {
+            if(resultCode == RESULT_OK) {
+                editText1.setText(data.getStringExtra("PERSONAL_DATA"));
+            }
+        }else if(requestCode == STYLE_CODE) {
+            if(resultCode == RESULT_OK) {
+                editText1.setText(data.getStringExtra("STYLE_DATA"));
             }
         }
     }

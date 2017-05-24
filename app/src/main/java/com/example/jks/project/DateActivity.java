@@ -11,7 +11,9 @@ import android.widget.EditText;
 
 /*------프로젝트 공동 작업을 위한 설명 공간입니다.------*/ /*
 날짜를 표시하는 액티비티
-날짜를 선택하고 버튼을 누르면 날짜 값을 리턴합니다.
+날짜를 선택하면 edittext에 값을 저장하고
+버튼을 누르면 edittext의 값을 인텐트로 넘기며
+액티비티를 종료합니다.
 */ /*------------------------------------------------------*/
 
 public class DateActivity extends AppCompatActivity {
