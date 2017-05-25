@@ -26,6 +26,7 @@ kma.go.kr/m/observation/observation_01.jsp
 20~ 얇게
 */ /*------------------------------------------------------*/
 public class WeatherActivity extends AppCompatActivity {
+    String string = new String("");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,12 +50,16 @@ public class WeatherActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch(checkedId){
                     case R.id.WradioButton1:
+                        string = "@strings/Wsunny";
                         break;
                     case R.id.WradioButton2:
+                        string = "@strings/Wgloomy";
                         break;
                     case R.id.WradioButton3:
+                        string = "@strings/Wrainy";
                         break;
                     case R.id.WradioButton4:
+                        string = "@strings/Wsnowy";
                         break;
                 }
             }

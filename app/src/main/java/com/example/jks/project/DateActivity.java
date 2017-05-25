@@ -34,7 +34,7 @@ public class DateActivity extends AppCompatActivity {
             }
         });
 
-        CalendarView calendarView = (CalendarView)findViewById(R.id.DcalendarView);
+        CalendarView calendarView = (CalendarView) findViewById(R.id.DcalendarView1);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {

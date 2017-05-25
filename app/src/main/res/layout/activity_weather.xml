@@ -9,49 +9,96 @@
     <WebView
         android:id="@+id/WwebView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"></LinearLayout>
+    </WebView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="12">
+        android:orientation="vertical">
 
-        <RadioGroup
-            android:id="@+id/WradioGroup1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/WradioButton1"
+            <RadioGroup
+                android:id="@+id/WradioGroup1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="WonClick"
-                android:text="@string/Wsunny" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:id="@+id/WradioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="WonClick"
-                android:text="@string/Wgloomy" />
+                <TextView
+                    android:id="@+id/WtextView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="날씨" />
 
-            <RadioButton
-                android:id="@+id/WradioButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="WonClick"
-                android:text="@string/Wrainy" />
+                <RadioButton
+                    android:id="@+id/WradioButton1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="WonClick"
+                    android:text="@string/Wsunny" />
 
-            <RadioButton
-                android:id="@+id/WradioButton4"
+                <RadioButton
+                    android:id="@+id/WradioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="WonClick"
+                    android:text="@string/Wgloomy" />
+
+                <RadioButton
+                    android:id="@+id/WradioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="WonClick"
+                    android:text="@string/Wrainy" />
+
+                <RadioButton
+                    android:id="@+id/WradioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="WonClick"
+                    android:text="@string/Wsnowy" />
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/WtextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="WonClick"
-                android:text="@string/Wsnowy" />
-        </RadioGroup>
+                android:layout_weight="1"
+                android:text="온도" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="8"
+                android:hint="온도를 입력하세요."
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/Wbutton1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="확인" />
+        </LinearLayout>
 
     </LinearLayout>
 

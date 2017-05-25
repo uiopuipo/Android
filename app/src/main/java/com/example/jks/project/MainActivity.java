@@ -62,15 +62,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }else if(requestCode == WEATHER_CODE) {
             if(resultCode == RESULT_OK) {
-                editText1.setText(data.getStringExtra("WEATHER_DATA"));
+                editText2.setText(data.getStringExtra("WEATHER_DATA"));
             }
         }else if(requestCode == PERSONAL_CODE) {
             if(resultCode == RESULT_OK) {
-                editText1.setText(data.getStringExtra("PERSONAL_DATA"));
+                editText3.setText(data.getStringExtra("PERSONAL_DATA"));
             }
         }else if(requestCode == STYLE_CODE) {
             if(resultCode == RESULT_OK) {
-                editText1.setText(data.getStringExtra("STYLE_DATA"));
+                editText4.setText(data.getStringExtra("STYLE_DATA"));
             }
         }
     }
