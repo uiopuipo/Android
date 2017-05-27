@@ -9,23 +9,23 @@
     <WebView
         android:id="@+id/WwebView1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"></LinearLayout>
-    </WebView>
+        android:layout_height="match_parent"
+        android:layout_weight="3"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_weight="19"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingTop="2dp">
 
             <RadioGroup
                 android:id="@+id/WradioGroup1"
@@ -37,6 +37,7 @@
                     android:id="@+id/WtextView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
                     android:layout_weight="1"
                     android:text="날씨" />
 
@@ -44,28 +45,24 @@
                     android:id="@+id/WradioButton1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="WonClick"
                     android:text="@string/Wsunny" />
 
                 <RadioButton
                     android:id="@+id/WradioButton2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="WonClick"
                     android:text="@string/Wgloomy" />
 
                 <RadioButton
                     android:id="@+id/WradioButton3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="WonClick"
                     android:text="@string/Wrainy" />
 
                 <RadioButton
                     android:id="@+id/WradioButton4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="WonClick"
                     android:text="@string/Wsnowy" />
             </RadioGroup>
 
@@ -74,6 +71,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:orientation="horizontal">
 
             <TextView
@@ -84,13 +82,13 @@
                 android:text="온도" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/WeditText1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:ems="8"
-                android:hint="온도를 입력하세요."
-                android:inputType="number" />
+                android:ems="10"
+                android:inputType="numberDecimal"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/Wbutton1"

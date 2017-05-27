@@ -1,5 +1,6 @@
 package com.example.jks.project;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +10,11 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Method;
 
@@ -26,12 +29,12 @@ kma.go.kr/m/observation/observation_01.jsp
 20~ 얇게
 */ /*------------------------------------------------------*/
 public class WeatherActivity extends AppCompatActivity {
-    String string = new String("");
+    Intent intent = new Intent();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-
+        //---------------WEBVIEW-------------------//
         WebView webView = (WebView)findViewById(R.id.WwebView1);
         webView.setWebViewClient(new WebViewClient());
         WebSettings webSettings = webView.getSettings();
@@ -43,25 +46,25 @@ public class WeatherActivity extends AppCompatActivity {
         else {
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
+        //---------------RADIO_BUTTON-------------------//
+        final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.WradioGroup1);
+        final EditText editText = (EditText)findViewById(R.id.WeditText1);
 
-        RadioGroup rg = (RadioGroup)findViewById(R.id.WradioGroup1);
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        //---------------BUTTON-------------------//
+        Button button = (Button)findViewById(R.id.Wbutton1);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch(checkedId){
-                    case R.id.WradioButton1:
-                        string = "@strings/Wsunny";
-                        break;
-                    case R.id.WradioButton2:
-                        string = "@strings/Wgloomy";
-                        break;
-                    case R.id.WradioButton3:
-                        string = "@strings/Wrainy";
-                        break;
-                    case R.id.WradioButton4:
-                        string = "@strings/Wsnowy";
-                        break;
-                }
+            public void onClick(View v) {
+                int id = radioGroup.getCheckedRadioButtonId();
+                RadioButton radioButton = (RadioButton) findViewById(id);
+                String string1 = radioButton.getText().toString();
+                String string2 = editText.getText().toString();
+                Toast.makeText(WeatherActivity.this, string1, Toast.LENGTH_SHORT);
+                Toast.makeText(WeatherActivity.this, string2, Toast.LENGTH_SHORT);
+                intent.putExtra("WEATHER_DATA1", string1);
+                intent.putExtra("WEATHER_DATA2", string2);
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
     }

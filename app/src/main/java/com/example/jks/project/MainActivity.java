@@ -62,7 +62,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }else if(requestCode == WEATHER_CODE) {
             if(resultCode == RESULT_OK) {
-                editText2.setText(data.getStringExtra("WEATHER_DATA"));
+                String string1 = data.getStringExtra("WEATHER_DATA1");
+                String string2 = data.getStringExtra("WEATHER_DATA2");
+                editText2.setText("날씨: " +string1 +", 온도 : "+ string2 +"도");
             }
         }else if(requestCode == PERSONAL_CODE) {
             if(resultCode == RESULT_OK) {
