@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final static int PERSONAL_CODE = 3;
     final static int STYLE_CODE = 4;
     EditText editText1, editText2, editText3, editText4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
