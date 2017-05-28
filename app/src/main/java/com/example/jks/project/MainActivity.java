@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /*------프로젝트 공동 작업을 위한 설명 공간입니다.------*/ /*
 1. GitHub 주소 : https://github.com/uiopuipo/Android
@@ -13,6 +14,11 @@ import android.widget.EditText;
     ex) activity_main에서 button으로 기본 생성이 되었다면 메인의 M을 따서 -> "@+id/Mbutton1"
 3. 객체 이름짓기 규칙 - 해당 객체의 종류를 소문자로 적고 숫자를 추가합니다.
     ex) Button 객체를 생성한다면 -> Button button1
+
+    4. 해야하는것 날짜 -> 계절을 판단
+                  날씨로 -> 우산을 가져가세요
+                  BMI로 스타일을 판단
+                  값에다 범위를 준다 -> 디테일
 */ /*------------------------------------------------------*/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText4 = (EditText) findViewById(R.id.MeditText4);
     }
 
+    private boolean isEmpty(EditText etText) {
+        return etText.getText().toString().trim().length() == 0;
+    }
+
     @Override
     public void onClick(View v) {
         Intent intent;
@@ -49,7 +59,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(intent, PERSONAL_CODE);
                 break;
             case R.id.Mbutton4:
+                if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)) {
+                    Toast.makeText(getApplicationContext(), "정보를 입력하세요.", Toast.LENGTH_SHORT).show();
+                }
                 intent = new Intent(MainActivity.this, StyleActivity.class);
+                //위의 3개의 결과를 바탕으로 값을 계산해 인텐트로 넘긴다.
                 startActivityForResult(intent, STYLE_CODE);
                 break;
         }

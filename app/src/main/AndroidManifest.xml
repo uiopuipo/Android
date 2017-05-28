@@ -23,6 +23,8 @@
         <activity
             android:name=".WeatherActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:windowSoftInputMode="adjustPan"
+
             android:label="@string/WeatherTitle" />
         <activity
             android:name=".PersonalActivity"
