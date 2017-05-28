@@ -15,9 +15,9 @@ import android.widget.Toast;
 3. 객체 이름짓기 규칙 - 해당 객체의 종류를 소문자로 적고 숫자를 추가합니다.
     ex) Button 객체를 생성한다면 -> Button button1
 
-    4. 해야하는것 날짜 -> 계절을 판단
-                  날씨로 -> 우산을 가져가세요
-                  BMI로 스타일을 판단
+    4. 해야하는 것 날짜 -> 계절을 판단
+                  날씨 -> 옷의 두께를 판단
+                  BMI로 스타일을 판단 66번째줄
                   값에다 범위를 준다 -> 디테일
 */ /*------------------------------------------------------*/
 
@@ -61,10 +61,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.Mbutton4:
                 if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)) {
                     Toast.makeText(getApplicationContext(), "정보를 입력하세요.", Toast.LENGTH_SHORT).show();
+                } else {
+                    intent = new Intent(MainActivity.this, StyleActivity.class);
+                    //위의 3개의 결과를 바탕으로 값을 계산해 인텐트로 넘긴다.
+                    startActivityForResult(intent, STYLE_CODE);
                 }
-                intent = new Intent(MainActivity.this, StyleActivity.class);
-                //위의 3개의 결과를 바탕으로 값을 계산해 인텐트로 넘긴다.
-                startActivityForResult(intent, STYLE_CODE);
                 break;
         }
     }
