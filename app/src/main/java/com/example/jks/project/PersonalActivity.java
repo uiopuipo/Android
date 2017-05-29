@@ -14,7 +14,6 @@ import android.widget.Toast;
 public class PersonalActivity extends AppCompatActivity {
     EditText editText1;
     EditText editText2;
-    EditText editText3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

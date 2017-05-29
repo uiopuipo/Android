@@ -16,10 +16,6 @@ import android.widget.Toast;
 3. 객체 이름짓기 규칙 - 해당 객체의 종류를 소문자로 적고 숫자를 추가합니다.
     ex) Button 객체를 생성한다면 -> Button button1
 
-    4. 해야하는 것 날짜 -> 계절을 판단
-                  날씨 -> 옷의 두께를 판단
-                  BMI로 스타일을 판단 66번째줄
-                  값에다 범위를 준다 -> 디테일
 */ /*------------------------------------------------------*/
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -69,15 +65,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(intent, PERSONAL_CODE);
                 break;
             case R.id.Mbutton4:
-                if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)) {
+                if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)
+                        || isEmpty(editText4) || isEmpty(editText5)) {
                     Toast.makeText(getApplicationContext(), "정보를 입력하세요."
                             ,Toast.LENGTH_SHORT).show();
+                    /* 빠른 테스트용 코드
                     intent = new Intent(MainActivity.this, StyleActivity.class);
                     intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절
                     intent.putExtra("MAIN_DATA2", weather); // 날씨 -> 우산체크
                     intent.putExtra("MAIN_DATA3", temperature); // 온도 -> 옷의 두께
                     intent.putExtra("MAIN_DATA4", bmi); // bmi -> 스타일
                     startActivityForResult(intent, STYLE_CODE);
+                    */
                 } else {
                     intent = new Intent(MainActivity.this, StyleActivity.class);
                     intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절

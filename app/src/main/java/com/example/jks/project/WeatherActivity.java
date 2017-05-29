@@ -25,8 +25,10 @@ kma.go.kr/m/observation/observation_01.jsp
 날씨는 라디오버튼으로 선택하게 하고
 온도도 입력 받고
 */ /*------------------------------------------------------*/
-public class WeatherActivity extends AppCompatActivity {
-    Intent intent = new Intent();
+public class WeatherActivity extends AppCompatActivity implements View.OnClickListener{
+    Intent intent;
+    RadioGroup radioGroup;
+    EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,25 +50,28 @@ public class WeatherActivity extends AppCompatActivity {
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
         //---------------RADIO_BUTTON-------------------//
-        final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.WradioGroup1);
-        final EditText editText = (EditText)findViewById(R.id.WeditText1);
+        radioGroup = (RadioGroup)findViewById(R.id.WradioGroup1);
+        radioGroup.check(R.id.WradioButton1);
+        editText = (EditText)findViewById(R.id.WeditText1);
+    }
 
-        //---------------BUTTON-------------------//
-        Button button = (Button)findViewById(R.id.Wbutton1);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
+        intent = new Intent();
+        switch (v.getId()) {
+            case R.id.Wbutton1:
                 int id = radioGroup.getCheckedRadioButtonId();
                 RadioButton radioButton = (RadioButton) findViewById(id);
-                String string1 = radioButton.getText().toString();
-                String string2 = editText.getText().toString();
-                Toast.makeText(WeatherActivity.this, string1, Toast.LENGTH_SHORT);
-                Toast.makeText(WeatherActivity.this, string2, Toast.LENGTH_SHORT);
-                intent.putExtra("WEATHER_DATA1", string1);
-                intent.putExtra("WEATHER_DATA2", string2);
-                setResult(RESULT_OK, intent);
-                finish();
-            }
-        });
+                if (editText.getText().toString().equals("")) {
+                    finish();
+                }else {
+                    String string1 = radioButton.getText().toString();
+                    String string2 = editText.getText().toString();
+                    intent.putExtra("WEATHER_DATA1", string1);
+                    intent.putExtra("WEATHER_DATA2", string2);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+        }
     }
 }
