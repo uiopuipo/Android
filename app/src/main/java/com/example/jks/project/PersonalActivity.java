@@ -29,8 +29,7 @@ public class PersonalActivity extends AppCompatActivity {
 
     public void PonClick(View view){
         if(isEmpty(editText1) || isEmpty(editText2)) {
-            Toast.makeText(getApplicationContext(), "키와 몸무게를 입력하세요."
-                    ,Toast.LENGTH_SHORT).show();
+            finish();
         }
         else {
             String height = editText1.getText().toString();

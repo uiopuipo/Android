@@ -45,21 +45,6 @@ public class StyleActivity extends AppCompatActivity {
         ImageView imageView1 = (ImageView) findViewById(R.id.SimageView1);
         imageView1.setImageResource(R.drawable.a);
 
-/*
-        switch(month){
-            case 3:case 4:case 5:
-                //봄 옷
-                break;
-            case 6:case 7:case 8:
-                //여름 옷
-                break;
-            case 9:case 10:
-                //가을 옷
-                break;
-            case 11:case 12:case 1:case 2:
-                //겨울 옷
-                break;
-        }
         switch(weather){
             case "맑음":
                 break;
@@ -74,6 +59,21 @@ public class StyleActivity extends AppCompatActivity {
             case "눈":
                 Toast.makeText(this, "우산을 챙기세요!", Toast.LENGTH_LONG).show();
                 //우산 메시지
+                break;
+        }
+/*
+        switch(month){
+            case 3:case 4:case 5:
+                //봄 옷
+                break;
+            case 6:case 7:case 8:
+                //여름 옷
+                break;
+            case 9:case 10:
+                //가을 옷
+                break;
+            case 11:case 12:case 1:case 2:
+                //겨울 옷
                 break;
         }
 
