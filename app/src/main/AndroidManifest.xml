@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,6 +20,7 @@
         </activity>
         <activity
             android:name=".DateActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/DateTitle" />
         <activity
             android:name=".WeatherActivity"
@@ -28,9 +30,11 @@
             android:label="@string/WeatherTitle" />
         <activity
             android:name=".PersonalActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="@string/PersonalTitle" />
         <activity
             android:name=".StyleActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:label="스타일 추천"/>
     </application>
 

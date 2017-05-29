@@ -1,5 +1,6 @@
 package com.example.jks.project;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -27,15 +28,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final static int PERSONAL_CODE = 3;
     final static int STYLE_CODE = 4;
     EditText editText1, editText2, editText3, editText4;
+    double bmi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         editText1 = (EditText) findViewById(R.id.MeditText1);
         editText2 = (EditText) findViewById(R.id.MeditText2);
         editText3 = (EditText) findViewById(R.id.MeditText3);
-        editText4 = (EditText) findViewById(R.id.MeditText4);
     }
 
     private boolean isEmpty(EditText etText) {
@@ -60,9 +65,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.Mbutton4:
                 if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)) {
-                    Toast.makeText(getApplicationContext(), "정보를 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "정보를 입력하세요."
+                            ,Toast.LENGTH_SHORT).show();
                 } else {
                     intent = new Intent(MainActivity.this, StyleActivity.class);
+                    intent.putExtra("MAIN_DATA1", bmi); // 날짜 -> 계절
+                    intent.putExtra("MAIN_DATA2", bmi); // 날씨 -> 옷의 두께, 우산체크
+                    intent.putExtra("MAIN_DATA3", bmi); //
+                    intent.putExtra("MAIN_DATA4", bmi);
+                    intent.putExtra("MAIN_DATA5", bmi);
                     //위의 3개의 결과를 바탕으로 값을 계산해 인텐트로 넘긴다.
                     startActivityForResult(intent, STYLE_CODE);
                 }
@@ -84,7 +95,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }else if(requestCode == PERSONAL_CODE) {
             if(resultCode == RESULT_OK) {
-                editText3.setText(data.getStringExtra("PERSONAL_DATA"));
+                String string1 = data.getStringExtra("PERSONAL_DATA1");
+                String string2 = data.getStringExtra("PERSONAL_DATA2");
+                double height = Double.parseDouble(string1.toString());
+                double weight = Double.parseDouble(string2.toString());
+                bmi = weight / ((height/100) * (height/100));
+                editText3.setText("키 : " + string1 + ", 몸무게 : " + string2);
             }
         }else if(requestCode == STYLE_CODE) {
             if(resultCode == RESULT_OK) {

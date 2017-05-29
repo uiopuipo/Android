@@ -2,6 +2,7 @@ package com.example.jks.project;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,7 +23,10 @@ public class DateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date);
-
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
         final EditText editText = (EditText) findViewById(R.id.DeditText1);
         Button button = (Button) findViewById(R.id.Dbutton1);
         button.setOnClickListener(new View.OnClickListener() {
@@ -41,7 +45,7 @@ public class DateActivity extends AppCompatActivity {
                 mYear = year;
                 mMonth = month;
                 mDay = dayOfMonth;
-                editText.setText(""+mYear+"년 "+mMonth+"월 "+mDay+"일");
+                editText.setText(""+mYear+"년 "+(mMonth+1)+"월 "+mDay+"일");
             }
         });
     }

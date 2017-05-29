@@ -22,7 +22,6 @@ public class PersonalActivity extends AppCompatActivity {
         setContentView(R.layout.activity_personal);
         editText1 = (EditText)findViewById(R.id.PeditText1);
         editText2 = (EditText)findViewById(R.id.PeditText2);
-        editText3 = (EditText)findViewById(R.id.PeditText3);
     }
 
     private boolean isEmpty(EditText etText) {
@@ -31,17 +30,16 @@ public class PersonalActivity extends AppCompatActivity {
 
     public void PonClick(View view){
         if(isEmpty(editText1) || isEmpty(editText2)) {
-            Toast.makeText(getApplicationContext(), "키와 몸무게를 입력하세요.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "키와 몸무게를 입력하세요."
+                    ,Toast.LENGTH_SHORT).show();
         }
         else {
-            double height = Double.parseDouble(editText1.getText().toString());
-            double weight = Double.parseDouble(editText2.getText().toString());
-            double bmi = weight / ((height/100) * (height/100));
-            String result=String.format("%.2f",bmi);
-            editText3.setText("" + bmi);
+            String height = editText1.getText().toString();
+            String weight = editText2.getText().toString();
 
             Intent intent = new Intent();
-            intent.putExtra("PERSONAL_DATA", result);
+            intent.putExtra("PERSONAL_DATA1", height);
+            intent.putExtra("PERSONAL_DATA2", weight);
             setResult(RESULT_OK, intent);
             finish();
         }
