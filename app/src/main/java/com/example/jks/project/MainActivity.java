@@ -27,8 +27,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     final static int WEATHER_CODE = 2;
     final static int PERSONAL_CODE = 3;
     final static int STYLE_CODE = 4;
-    EditText editText1, editText2, editText3, editText4;
+    EditText editText1, editText2, editText3, editText4, editText5;
     double bmi;
+    int month;
+    String weather;
+    double temperature;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editText1 = (EditText) findViewById(R.id.MeditText1);
         editText2 = (EditText) findViewById(R.id.MeditText2);
         editText3 = (EditText) findViewById(R.id.MeditText3);
+        editText4 = (EditText) findViewById(R.id.MeditText4);
+        editText5 = (EditText) findViewById(R.id.MeditText5);
     }
 
     private boolean isEmpty(EditText etText) {
@@ -67,14 +72,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(isEmpty(editText1) || isEmpty(editText2) || isEmpty(editText3)) {
                     Toast.makeText(getApplicationContext(), "정보를 입력하세요."
                             ,Toast.LENGTH_SHORT).show();
+                    intent = new Intent(MainActivity.this, StyleActivity.class);
+                    intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절
+                    intent.putExtra("MAIN_DATA2", weather); // 날씨 -> 우산체크
+                    intent.putExtra("MAIN_DATA3", temperature); // 온도 -> 옷의 두께
+                    intent.putExtra("MAIN_DATA4", bmi); // bmi -> 스타일
+                    startActivityForResult(intent, STYLE_CODE);
                 } else {
                     intent = new Intent(MainActivity.this, StyleActivity.class);
-                    intent.putExtra("MAIN_DATA1", bmi); // 날짜 -> 계절
-                    intent.putExtra("MAIN_DATA2", bmi); // 날씨 -> 옷의 두께, 우산체크
-                    intent.putExtra("MAIN_DATA3", bmi); //
-                    intent.putExtra("MAIN_DATA4", bmi);
-                    intent.putExtra("MAIN_DATA5", bmi);
-                    //위의 3개의 결과를 바탕으로 값을 계산해 인텐트로 넘긴다.
+                    intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절
+                    intent.putExtra("MAIN_DATA2", weather); // 날씨 -> 우산체크
+                    intent.putExtra("MAIN_DATA3", temperature); // 온도 -> 옷의 두께
+                    intent.putExtra("MAIN_DATA4", bmi); // bmi -> 스타일
                     startActivityForResult(intent, STYLE_CODE);
                 }
                 break;
@@ -85,13 +94,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         if(requestCode == DATE_CODE) {
             if(resultCode == RESULT_OK) {
-                editText1.setText(data.getStringExtra("DATE_DATA"));
+                editText1.setText(data.getStringExtra("DATE_DATA1"));
+                month = data.getIntExtra("DATE_DATA2", 0);
             }
         }else if(requestCode == WEATHER_CODE) {
             if(resultCode == RESULT_OK) {
-                String string1 = data.getStringExtra("WEATHER_DATA1");
-                String string2 = data.getStringExtra("WEATHER_DATA2");
-                editText2.setText("날씨: " +string1 +", 온도 : "+ string2 +"도");
+                weather = data.getStringExtra("WEATHER_DATA1");
+                String string = data.getStringExtra("WEATHER_DATA2");
+                temperature = Double.parseDouble(string.toString());
+                editText2.setText("날씨: " +weather);
+                editText3.setText("온도 : "+ temperature +"도");
             }
         }else if(requestCode == PERSONAL_CODE) {
             if(resultCode == RESULT_OK) {
@@ -100,11 +112,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 double height = Double.parseDouble(string1.toString());
                 double weight = Double.parseDouble(string2.toString());
                 bmi = weight / ((height/100) * (height/100));
-                editText3.setText("키 : " + string1 + ", 몸무게 : " + string2);
+                editText4.setText("키 : " + string1 + "m");
+                editText5.setText("몸무게 : " + string2 + "kg");
             }
         }else if(requestCode == STYLE_CODE) {
             if(resultCode == RESULT_OK) {
-                editText4.setText(data.getStringExtra("STYLE_DATA"));
             }
         }
     }

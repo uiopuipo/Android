@@ -24,10 +24,6 @@ import java.lang.reflect.Method;
 kma.go.kr/m/observation/observation_01.jsp
 날씨는 라디오버튼으로 선택하게 하고
 온도도 입력 받고
--10~5도는 옷을 두껍게
-5~15도는 약간 두껍게
-15~20도는 보통
-20~ 얇게
 */ /*------------------------------------------------------*/
 public class WeatherActivity extends AppCompatActivity {
     Intent intent = new Intent();

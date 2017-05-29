@@ -51,7 +51,7 @@
 
         <EditText
             android:id="@+id/MeditText1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
@@ -76,8 +76,15 @@
             android:id="@+id/MeditText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
+            android:ems="4"
+            android:focusable="false"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/MeditText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
             android:focusable="false"
             android:inputType="textPersonName" />
     </LinearLayout>
@@ -95,13 +102,21 @@
             android:text="@string/Mpersonal" />
 
         <EditText
-            android:id="@+id/MeditText3"
+            android:id="@+id/MeditText4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
+            android:ems="4"
             android:focusable="false"
             android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/MeditText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:focusable="false"
+            android:inputType="textPersonName" />
+
     </LinearLayout>
 
     <Button

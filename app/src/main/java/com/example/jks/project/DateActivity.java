@@ -32,7 +32,8 @@ public class DateActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.putExtra("DATE_DATA", editText.getText().toString());
+                intent.putExtra("DATE_DATA1", editText.getText().toString());
+                intent.putExtra("DATE_DATA2",mMonth+1);
                 setResult(RESULT_OK, intent);
                 finish();
             }
