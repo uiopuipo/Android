@@ -15,8 +15,32 @@
         android:gravity="center"
         android:text="이런 스타일은 어떠신가요?" />
 
+    <LinearLayout
+        android:id="@+id/SlinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/StextView2"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="우산을 챙기세요!" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="28dp"
+            android:layout_height="32dp"
+            android:layout_weight="0.06"
+            app:srcCompat="@drawable/umbrella" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/SimageView1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

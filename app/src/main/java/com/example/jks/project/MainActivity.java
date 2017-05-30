@@ -69,14 +69,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         || isEmpty(editText4) || isEmpty(editText5)) {
                     Toast.makeText(getApplicationContext(), "정보를 입력하세요."
                             ,Toast.LENGTH_SHORT).show();
-                    /* 빠른 테스트용 코드
-                    intent = new Intent(MainActivity.this, StyleActivity.class);
-                    intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절
-                    intent.putExtra("MAIN_DATA2", weather); // 날씨 -> 우산체크
-                    intent.putExtra("MAIN_DATA3", temperature); // 온도 -> 옷의 두께
-                    intent.putExtra("MAIN_DATA4", bmi); // bmi -> 스타일
-                    startActivityForResult(intent, STYLE_CODE);
-                    */
                 } else {
                     intent = new Intent(MainActivity.this, StyleActivity.class);
                     intent.putExtra("MAIN_DATA1", month); // 날짜 -> 계절
@@ -111,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 double height = Double.parseDouble(string1.toString());
                 double weight = Double.parseDouble(string2.toString());
                 bmi = weight / ((height/100) * (height/100));
-                editText4.setText("키 : " + string1 + "m");
+                editText4.setText("키 : " + string1 + "cm");
                 editText5.setText("몸무게 : " + string2 + "kg");
             }
         }else if(requestCode == STYLE_CODE) {
