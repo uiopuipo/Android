@@ -8,6 +8,21 @@
     android:padding="15dp"
     tools:context="com.example.jks.project.PersonalActivity">
 
+    <TextView
+        android:id="@+id/PtextView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="체형에 맞는 스타일을 추천해드립니다." />
+
+    <ImageView
+        android:id="@+id/PimageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/bmi" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -65,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="PonClick"
-            android:text="수치 계산" />
+            android:text="확인" />
 
     </LinearLayout>
 

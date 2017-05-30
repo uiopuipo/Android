@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 String string = data.getStringExtra("WEATHER_DATA2");
                 temperature = Double.parseDouble(string.toString());
                 editText2.setText("날씨: " +weather);
-                editText3.setText("온도 : "+ temperature +"도");
+                editText3.setText("온도: "+ temperature +"도");
             }
         }else if(requestCode == PERSONAL_CODE) {
             if(resultCode == RESULT_OK) {
@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 double height = Double.parseDouble(string1.toString());
                 double weight = Double.parseDouble(string2.toString());
                 bmi = weight / ((height/100) * (height/100));
-                editText4.setText("키 : " + string1 + "cm");
-                editText5.setText("몸무게 : " + string2 + "kg");
+                editText4.setText("키: " + string1 + "cm");
+                editText5.setText("몸무게: " + string2 + "kg");
             }
         }else if(requestCode == STYLE_CODE) {
             if(resultCode == RESULT_OK) {

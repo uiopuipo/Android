@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 /*------프로젝트 공동 작업을 위한 설명 공간입니다.------*/ /*
 개인 정보를 입력받는 액티비티
